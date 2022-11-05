@@ -9,17 +9,17 @@ fi
 
 # setup fzf
 # ---------
-if [[ ! "$PATH" == */home/$USERNAME/.local/share/fzf/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/home/$USERNAME/.local/share/fzf/bin"
+if [[ ! "$PATH" == *$XDG_DATA_HOME/fzf/bin* ]]; then
+  export PATH="${PATH:+${PATH}:}$XDG_DATA_HOME/fzf/bin"
 fi
 
 # auto-completion
 # ---------------
-[[ $- == *i* ]] && source "/home/$USERNAME/.local/share/fzf/shell/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "$XDG_DATA_HOME/fzf/shell/completion.zsh" 2> /dev/null
 
 # key bindings
 # ------------
-source "/home/$USERNAME/.local/share/fzf/shell/key-bindings.zsh"
+source "$XDG_DATA_HOME/fzf/shell/key-bindings.zsh"
 
 # show dot files
 # --------------
