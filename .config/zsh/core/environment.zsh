@@ -50,3 +50,17 @@ fi
 # variables
 # ---------
 
+
+
+# zsh
+# ---
+
+# .zcompdump
+if [[ -z "$ZSH_COMPDUMP" ]]
+then
+    export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
+fi
+
+autoload -Uz compinit
+compinit -d $ZSH_COMPDUMP
+
