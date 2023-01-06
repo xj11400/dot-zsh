@@ -5,7 +5,6 @@
 # History config
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=$HOME/.zsh_history
 
 # alias
 

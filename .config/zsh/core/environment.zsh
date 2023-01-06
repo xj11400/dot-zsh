@@ -54,6 +54,18 @@ fi
 
 # zsh
 # ---
+if [[ ! -d "$XDG_STATE_HOME/zsh" ]]
+then
+    mkdir -p "$XDG_STATE_HOME/zsh"
+fi
+
+if [[ ! -d "$XDG_CACHE_HOME/zsh" ]]
+then
+    mkdir -p "$XDG_CACHE_HOME/zsh"
+fi
+
+# .zsh_history
+export HISTFILE="$XDG_STATE_HOME/zsh/history"
 
 # .zcompdump
 if [[ -z "$ZSH_COMPDUMP" ]]
