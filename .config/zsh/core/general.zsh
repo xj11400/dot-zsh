@@ -32,3 +32,7 @@ fi
 
 #
 alias dot='cd ~/.dotfiles'
+
+# editor
+export VISUAL=vim;
+export EDITOR=vim;
