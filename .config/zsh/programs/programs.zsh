@@ -13,8 +13,8 @@ alias nnn='nnn -H'
 # ========
 
 # vim
-export VIMINIT='source $MYVIMRC'
 export MYVIMRC='$XDG_CONFIG_HOME/vim/vimrc'
+export VIMINIT='let $MYVIMRC=!has("nvim")?"$XDG_CONFIG_HOME/vim/vimrc":"$XDG_CONFIG_HOME/nvim/init.vim" | so $MYVIMRC'
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
