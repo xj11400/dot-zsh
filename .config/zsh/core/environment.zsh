@@ -49,6 +49,10 @@ fi
 
 # variables
 # ---------
+if [[ -z "$DOT_HOME" ]]
+then
+    export DOT_HOME="$HOME/.dotfiles"
+fi
 
 
 
