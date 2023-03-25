@@ -44,7 +44,7 @@ function x_zsh_require_x(){
 
 # pre load
 # ========
-source $X_ZSH_CONFIG_HOME/utils/os.zsh
+x_zsh_require_dir utils
 source $X_ZSH_CONFIG_HOME/platform/${MY_OS:l}.zsh
 
 # custom - pre
