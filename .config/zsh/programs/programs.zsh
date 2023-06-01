@@ -5,6 +5,7 @@
 # alias
 # =====
 alias ra='$(command -v ranger)'
+alias jo='$(command -v joshuto)'
 alias lgit='lazygit'
 alias ldocker='lazydocker'
 alias nnn='nnn -H'
