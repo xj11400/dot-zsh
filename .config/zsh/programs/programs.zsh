@@ -18,7 +18,7 @@ export MYVIMRC='$XDG_CONFIG_HOME/vim/vimrc'
 export VIMINIT='let $MYVIMRC=!has("nvim")?"$XDG_CONFIG_HOME/vim/vimrc":"$XDG_CONFIG_HOME/nvim/init.lua" | so $MYVIMRC'
 
 # less
-export LESSHISTFILE="$XDG_CACHE_HOME/less/lesshst"
+export LESSHISTFILE="$XDG_CACHE_HOME/lesshst"
 
 # wget
 #export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
