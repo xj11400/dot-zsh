@@ -80,3 +80,5 @@ fi
 autoload -Uz compinit
 compinit -d $ZSH_COMPDUMP
 
+# .zcompcache
+zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
