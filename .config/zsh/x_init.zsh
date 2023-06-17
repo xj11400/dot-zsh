@@ -47,9 +47,9 @@ function x_zsh_require_x(){
 x_zsh_require_dir utils
 source $X_ZSH_CONFIG_HOME/platform/${MY_OS:l}.zsh
 
-# custom - pre
-if [[ -f "$X_ZSH_CONFIG_HOME/custom/pre_load.zsh" ]];then
-    source $X_ZSH_CONFIG_HOME/custom/pre_load.zsh
+# user - pre
+if [[ -f "$X_ZSH_CONFIG_HOME/user/pre_load.zsh" ]];then
+    source $X_ZSH_CONFIG_HOME/user/pre_load.zsh
 fi
 
 # load files
@@ -70,9 +70,9 @@ x_zsh_require plugin
 # programs
 x_zsh_require_dir programs
 
-# custom
-if [[ -d "$X_ZSH_CONFIG_HOME/custom" && $(ls -A $X_ZSH_CONFIG_HOME/custom) ]];then
-    x_zsh_require_dir custom
+# user
+if [[ -d "$X_ZSH_CONFIG_HOME/user" && $(ls -A $X_ZSH_CONFIG_HOME/user) ]];then
+    x_zsh_require_dir user
 fi
 
 # unset function
