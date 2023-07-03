@@ -27,10 +27,5 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 # config
 # ======
 
-# tmux
-bindkey -e
-alias tmux="tmux -2"
-
-
 
 # source 
