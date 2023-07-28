@@ -62,10 +62,6 @@ blockf \
 zi ice lucid wait "1" has'fzf'
 zi light aloxaf/fzf-tab
 
-# wait'1' plugins
-zi wait"1" lucid for \
-    wfxr/forgit
-  
 # A few wait'2' plugins
 zi wait"2" lucid for \
   atinit"forgit_ignore='fgi'" \
