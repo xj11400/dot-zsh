@@ -16,6 +16,13 @@ if [ "$(command -v pyenv)" ]; then
     eval "$(pyenv init -)"
 fi
 
+if [ "$(command -v poetry)" ]; then
+    export POETRY_CONFIG_DIR="$XDG_CONFIG_HOME/pypoetry"
+    export POETRY_HOME="$XDG_DATA_HOME/pypoetry"
+    export POETRY_DATA_DIR="$XDG_DATA_HOME/pypoetry"
+    export POETRY_CACHE_DIR="$XDG_CACHE_HOME/pypoetry"
+fi
+
 # go
 # ==
 export GOPATH="$XDG_DATA_HOME"/go
