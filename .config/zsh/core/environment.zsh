@@ -54,6 +54,10 @@ then
     export DOT_HOME="$HOME/.dotfiles"
 fi
 
+# dotfiles
+alias xdotzsh="cd $DOT_HOME/zsh/.config/zsh"
+alias xdotnvim="cd $DOT_HOME/nvim/.config/nvim"
+alias xdottmux="cd $DOT_HOME/tmux/.config/tmux"
 
 
 # zsh
