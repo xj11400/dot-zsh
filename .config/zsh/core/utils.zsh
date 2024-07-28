@@ -17,10 +17,11 @@ function x_use(){
     if [[ ! -d "$2" ]]
     then
         print -P "%F{243}▓▒░ %F{249}Installing …%f"
-        #command mkdir -p "$2/$3" #&& command chmod g-rwX "$2"
-        command git clone "https://github.com/$1.git" "$2" --depth 1 && \
-        print -P "%F{243}▓▒░ %F{67}Installation successful.%f" || \
-        print -P "%F{124}▓▒░ The clone has failed.%f"
+        if command git clone --depth 1 "https://github.com/$1.git" "$2"; then
+            print -P "%F{243}▓▒░ %F{67}Installation successful.%f"
+        else
+            print -P "%F{124}▓▒░ The clone has failed.%f"
+        fi
     fi
 }
 
@@ -30,21 +31,21 @@ function x_use(){
 function x_update(){
     local dir="$1"
     local original_dir="$2"
-    cd $dir # switch to the git repo
-    repo_url=$(git config --get remote.origin.url)
+    cd "$dir" || return 1
+    local repo_url=$(git config --get remote.origin.url)
 
     echo "Updating Repo: $dir with url: $repo_url"
     echo "Starting update in $PWD"
 
-    main_branch="master"
+    local main_branch="master"
+    local current_branch=$(git rev-parse --abbrev-ref HEAD)
 
     # update the repo, then stash any local changes
     echo -e "\ncalling: git fetch --all && git stash"
     (git fetch --all && git stash)
-    current_branch=$(git rev-parse --abbrev-ref HEAD)
 
     # switch to master/trunk branch and rebase it, then switch back to original branch
-    if [ $current_branch != $main_branch ]; then
+    if [[ "$current_branch" != "$main_branch" ]]; then
         echo -e "\ncalling: git checkout $main_branch && git rebase && git checkout $current_branch"
         (git checkout $main_branch && git rebase && git checkout $current_branch)
     fi
@@ -66,10 +67,10 @@ function x_update(){
 # ---------
 function _DotUpdate(){
     echo "[[ Updating Repo ]]"
-    x_update $DOT_HOME $(pwd)
+    x_update "$DOT_HOME" "$(pwd)"
 
     echo "[[ Updating Dotfiles ]]"
-    $DOT_HOME/__x__/init.sh --silent
+    "$DOT_HOME/__x__/init.sh" --silent
 
     echo ""
     echo "[[ Reloading ]]"
