@@ -1,0 +1,15 @@
+# add fish-like features
+z-shell/F-Sy-H kind:defer
+zsh-users/zsh-autosuggestions kind:defer
+zsh-users/zsh-completions kind:defer
+
+aloxaf/fzf-tab kind:defer
+
+wfxr/forgit kind:defer
+
+# prompts:
+#   with prompt plugins, remember to add this to your .zshrc:
+#   `autoload -Uz promptinit && promptinit && prompt powerlevel10k`
+#romkatv/powerlevel10k kind:fpath
+
+#MichaelAquilina/zsh-you-should-use
