@@ -1,3 +1,16 @@
+#!/bin/zsh
+#
+# plugins/configs.zsh : config for plugins
+#
+
+# --------------
+# Completions
+# --------------
+# Autoload compinit
+autoload -Uz compinit
+# Initialize completion with the specified dump file
+compinit -d ${ZSH_COMPDUMP:-$XDG_CACHE_HOME/zsh/compdump}
+
 # --------------
 # zsh plugin
 # --------------
@@ -41,11 +54,13 @@ FAST_WORK_DIR=$HOME/.config/fsh
 # --------------
 
 # fzf
-# replace by wfxr/forgit
+# replaced by wfxr/forgit
 #alias gco='git checkout $(git branch | fzf --cycle --border --ansi)'
 #alias gadd="git status --short | fzf --multi --color=dark --cycle --border --ansi --preview-window=up:70% --preview=\"git diff --color {+2}\" | awk '{print \$2}'  | xargs git add"
 
 # fzf-scripts
 # https://github.com/bturrubiates/fzf-scripts
-alias gsh="~/.local/share/fzf-scripts/git-stash-explore"
+# replaced by wfxr/forgit
+# x_use bturrubiates/fzf-scripts $XDG_DATA_HOME/fzf-scripts
+# alias gsh="~/.local/share/fzf-scripts/git-stash-explore"
 

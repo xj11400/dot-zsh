@@ -1,11 +1,11 @@
 # Antidote's home folder
-export ANTIDOTE_HOME=$X_ZSH_DATA_HOME/zpm/antidote
+export ANTIDOTE_HOME=$X_ZSH_PLUGIN_MANAGER_HOME/antidote
 
 # clone Antidote
 x_use "mattmc3/antidote" $ANTIDOTE_HOME/antidote
 
 # Set the root name of the plugins files (.txt and .zsh) antidote will use.
-zsh_plugins=${ZDOTDIR:-$HOME/.config/zsh}/plugin/zpm/antidote/.zsh_plugins
+zsh_plugins=${ZDOTDIR:-$HOME/.config/zsh}/plugins/zpm/antidote/.zsh_plugins
 
 # Ensure the .zsh_plugins.txt file exists so you can add plugins.
 [[ -f ${zsh_plugins}.txt ]] || touch ${zsh_plugins}.txt

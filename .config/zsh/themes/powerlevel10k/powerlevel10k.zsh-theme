@@ -16,3 +16,5 @@ source $X_ZSH_THEME_DATA_HOME/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f $X_ZSH_THEME_HOME/powerlevel10k/.p10k.zsh ]] || source $X_ZSH_THEME_HOME/powerlevel10k/.p10k.zsh
+
+autoload -Uz promptinit && promptinit

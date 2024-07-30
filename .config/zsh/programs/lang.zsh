@@ -23,11 +23,15 @@ if [ "$(command -v poetry)" ]; then
     export POETRY_CACHE_DIR="$XDG_CACHE_HOME/pypoetry"
 fi
 
+# matplotlab
+export MPLCONFIGDIR="$XDG_CONFIG_HOME/matplotlib"
+
+
 # go
 # ==
-export GOPATH="$XDG_DATA_HOME"/go
-export GOMODCACHE="$XDG_CACHE_HOME"/go/mod
+export GOPATH="$XDG_DATA_HOME/go"
+export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 
 # rust
 # ====
-export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"

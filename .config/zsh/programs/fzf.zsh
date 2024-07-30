@@ -2,7 +2,7 @@ declare FZF_PATH=$XDG_DATA_HOME/fzf
 
 # download fzf
 # ------------
-if [[ ! -d $XDG_DATA_HOME/fzf ]];then
+if [[ ! -d $FZF_PATH ]];then
     #download fzf
     x_use "junegunn/fzf" $FZF_PATH
     #install fzf
