@@ -26,9 +26,7 @@ alias grep='grep --color=auto'
 export TERM=xterm-256color
 
 # 
-if [[ "$MY_OS" == "Darwin" ]];then
-    export LC_ALL=en_US.UTF-8
-fi
+[[ "$MY_OS" == "Darwin" ]] && export LC_ALL=en_US.UTF-8
 
 #
 alias dot='cd ~/.dotfiles'
@@ -36,3 +34,4 @@ alias dot='cd ~/.dotfiles'
 # editor
 export VISUAL=vim;
 export EDITOR=vim;
+# export PAGER="${PAGER:-less}"

@@ -34,37 +34,18 @@
 
 # variables
 # ---------
-if [[ -z "$DOT_HOME" ]]
-then
-    export DOT_HOME="$HOME/.dotfiles"
-fi
-
-# dotfiles
-alias xdotzsh="cd $DOT_HOME/zsh/.config/zsh"
-alias xdotnvim="cd $DOT_HOME/nvim/.config/nvim"
-alias xdottmux="cd $DOT_HOME/tmux/.config/tmux"
-
+[[ -z "$DOT_HOME" ]] && export DOT_HOME="$HOME/.dotfiles"
 
 # zsh
 # ---
-if [[ ! -d "$XDG_STATE_HOME/zsh" ]]
-then
-    mkdir -p "$XDG_STATE_HOME/zsh"
-fi
-
-if [[ ! -d "$XDG_CACHE_HOME/zsh" ]]
-then
-    mkdir -p "$XDG_CACHE_HOME/zsh"
-fi
+[[ ! -d "$XDG_STATE_HOME/zsh" ]] && mkdir -p "$XDG_STATE_HOME/zsh"
+[[ ! -d "$XDG_CACHE_HOME/zsh" ]] && mkdir -p "$XDG_CACHE_HOME/zsh"
 
 # .zsh_history
 export HISTFILE="$XDG_STATE_HOME/zsh/history"
 
 # .zcompdump
-if [[ -z "$ZSH_COMPDUMP" ]]
-then
-    export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
-fi
+[[ -z "$ZSH_COMPDUMP" ]] && export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
 
 autoload -Uz compinit
 compinit -d $ZSH_COMPDUMP
