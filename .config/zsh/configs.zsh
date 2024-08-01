@@ -3,7 +3,6 @@
 # configs.zsh : zsh configs
 #
 
-setopt extended_glob # Needed for file modification glob modifiers with coreutils setup
 setopt globdots # Enable globdots: match hidden files/dirs without explicit dot (e.g., '*' matches hidden items)
 
 # zsh directories

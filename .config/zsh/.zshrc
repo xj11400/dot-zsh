@@ -3,6 +3,8 @@
 # .zshrc - Zsh file loaded on interactive shell sessions.
 #
 
+setopt extended_glob # Needed for file modification glob modifiers with coreutils setup
+
 # Load functions
 # ===============
 
@@ -51,3 +53,6 @@ x_zsh_set_dir_colors "$X_ZSH_THEME_HOME/.dir_colors"
 # Unset Functions
 # ===============
 x_unset_functions
+
+unsetopt extended_glob # `setopt extended_glob` makes `git reset --soft HEAD^` not work with `^`
+
