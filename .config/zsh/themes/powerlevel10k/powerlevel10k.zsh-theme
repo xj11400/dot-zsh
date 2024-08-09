@@ -7,12 +7,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # use powerlevel10k
-#source ~/.config/zsh/theme/powerlevel10k/powerlevel10k/powerlevel10k.zsh-theme
 source $X_ZSH_THEME_DATA_HOME/powerlevel10k/powerlevel10k.zsh-theme
 
 # use robbyrussell theme
 #source $X_ZSH_THEME_DATA_HOME/powerlevel10k/config/p10k-robbyrussell.zsh
-#source $X_ZSH_THEME_DATA_HOME/snow_blocks/config/p10k-snowblocks.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f $X_ZSH_THEME_HOME/powerlevel10k/.p10k.zsh ]] || source $X_ZSH_THEME_HOME/powerlevel10k/.p10k.zsh
