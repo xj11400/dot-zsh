@@ -56,24 +56,45 @@
   POWERLEVEL9K_DIR_CONTENT_EXPANSION+="${1+%4F}]"
 
   # Git status formatter.
+  # modify function from
+  # https://github.com/romkatv/powerlevel10k/blob/master/config/p10k-classic.zsh
   function my_git_formatter() {
     emulate -L zsh
     if [[ -n $P9K_CONTENT ]]; then
       # If P9K_CONTENT is not empty, it's either "loading" or from vcs_info (not from
       # gitstatus plugin). VCS_STATUS_* parameters are not available in this case.
       typeset -g my_git_format=$P9K_CONTENT
-    else
-      # Use VCS_STATUS_* parameters to assemble Git status. See reference:
-      # https://github.com/romkatv/gitstatus/blob/master/gitstatus.plugin.zsh.
-  ## TODO::git 
-      typeset -g my_git_format="${1+%B%4F}╾─╼[${1+%1F}"
-      my_git_format+=${${VCS_STATUS_LOCAL_BRANCH:-${VCS_STATUS_COMMIT[1,8]}}//\%/%%}
-      if (( VCS_STATUS_NUM_CONFLICTED || VCS_STATUS_NUM_STAGED ||
-            VCS_STATUS_NUM_UNSTAGED   || VCS_STATUS_NUM_UNTRACKED )); then
-        my_git_format+="${1+%3F}*"
-      fi
-    fi
       my_git_format+="${1+%4F}]"
+      return
+    fi
+
+    local _fg='%243F'
+    local _ahead_behind='%247F'
+
+    # Use VCS_STATUS_* parameters to assemble Git status. See reference:
+    # https://github.com/romkatv/gitstatus/blob/master/gitstatus.plugin.zsh.
+    typeset -g my_git_format="${1+%B%4F}╾─╼[${_fg}"
+    my_git_format+=${${VCS_STATUS_LOCAL_BRANCH:-${VCS_STATUS_COMMIT[1,8]}}//\%/%%}
+
+    # Dirty:'*'
+    if (( VCS_STATUS_NUM_CONFLICTED || VCS_STATUS_NUM_STAGED ||
+          VCS_STATUS_NUM_UNSTAGED   || VCS_STATUS_NUM_UNTRACKED )); then
+      my_git_format+="${_fg}*"
+    fi
+
+    # Ahead:'⇡' Behind:'⇣'
+    if (( VCS_STATUS_COMMITS_AHEAD || VCS_STATUS_COMMITS_BEHIND )); then
+      # ⇣42 if behind the remote.
+      (( VCS_STATUS_COMMITS_BEHIND )) && my_git_format+=" ${_ahead_behind}⇣"
+      # ⇡42 if ahead of the remote; no leading space if also behind the remote: ⇣42⇡42.
+      (( VCS_STATUS_COMMITS_AHEAD && !VCS_STATUS_COMMITS_BEHIND )) && my_git_format+=" "
+      (( VCS_STATUS_COMMITS_AHEAD  )) && my_git_format+="${_ahead_behind}⇡"
+    elif [[ -n $VCS_STATUS_REMOTE_BRANCH ]]; then
+      # Tip: Uncomment the next line to display '=' if up to date with the remote.
+      # my_git_format+=" ${clean}="
+    fi
+
+    my_git_format+="${1+%4F}]"
   }
   functions -M my_git_formatter 2>/dev/null
 
@@ -84,6 +105,9 @@
   typeset -g POWERLEVEL9K_VCS_LOADING_CONTENT_EXPANSION='${$((my_git_formatter()))+${my_git_format}}'
   # Grey Git status when loading.
   typeset -g POWERLEVEL9K_VCS_LOADING_FOREGROUND=246
+
+
+
 
   # Instant prompt mode.
   #
