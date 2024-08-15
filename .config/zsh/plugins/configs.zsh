@@ -16,9 +16,12 @@ compinit -d ${ZSH_COMPDUMP:-$XDG_CACHE_HOME/zsh/compdump}
 # --------------
 
 # zsh-syntax-highlighting
-typeset -A ZSH_HIGHLIGHT_STYLES
+(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[command]='fg=111'
 ZSH_HIGHLIGHT_STYLES[alias]='fg=73'
+ZSH_HIGHLIGHT_STYLES[path]=none
+ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+ZSH_HIGHLIGHT_STYLES[precommand]=none
 
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
