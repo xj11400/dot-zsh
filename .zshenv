@@ -20,5 +20,5 @@ if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; t
 fi
 
 # Add custom bin and utils to PATH
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/share/utils:$PATH
+export PATH=$HOME/.local/bin:/usr/local/bin:$HOME/.local/share/utils:$PATH
 
