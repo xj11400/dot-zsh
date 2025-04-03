@@ -19,3 +19,10 @@ _delete_ds_store() {
     fi
 }
 
+print_tree() {
+    if [ command -v tree &> /dev/null ]; then
+        tree $@
+    else
+        find . -print | sed -e 's;[^/]*/;|____;g' -e 's;____|; |;g'
+    fi
+}
