@@ -30,6 +30,7 @@ $character"""
 # $env_var\
 # $jobs\
 # $localip\
+# $battery\
 
 right_format = """
 $nix_shell\
@@ -97,7 +98,6 @@ $crystal\
 $custom\
 $status\
 $os\
-$battery\
 $cmd_duration"""
 
 [fill]
@@ -320,6 +320,12 @@ impure_msg = '[impure shell](dimmed red)'
 pure_msg = '[pure shell](dimmed green)'
 unknown_msg = '[unknown shell](dimmed yellow)'
 heuristic = true
+
+[ruby]
+symbol = 'ruby'
+format = '[$symbol]($style) [$version](italic 240)'
+version_format = '${raw}'
+style = 'bold 244'
 
 [swift]
 symbol = 'swift'
