@@ -34,23 +34,30 @@ alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
 
-# from belak/zsh-utils:utility
-# https://github.com/belak/zsh-utils/blob/main/utility/utility.plugin.zsh
-# macOS utils everywhere
-if [[ "$OSTYPE" == darwin* ]]; then
-  alias o='open'
-elif [[ "$OSTYPE" == cygwin* ]]; then
-  alias o='cygstart'
-  alias pbcopy='tee > /dev/clipboard'
-  alias pbpaste='cat /dev/clipboard'
-elif [[ "$OSTYPE" == linux-android ]]; then
-  alias o='termux-open'
-  alias pbcopy='termux-clipboard-set'
-  alias pbpaste='termux-clipboard-get'
-else
-  alias o='xdg-open'
+# https://github.com/mattmc3/zephyr/blob/main/plugins/utility/utility.plugin.zsh
+# Ensure open command exists.
+if ! (( $+commands[open] )); then
+  if [[ "$OSTYPE" == cygwin* ]]; then
+    alias open='cygstart'
+  elif [[ "$OSTYPE" == linux-android ]]; then
+    alias open='termux-open'
+  elif (( $+commands[xdg-open] )); then
+    alias open='xdg-open'
+  fi
+fi
 
-  if [[ -n $DISPLAY ]]; then
+# Ensure pbcopy/pbpaste commands exist.
+if ! (( $+commands[pbcopy] )); then
+  if [[ "$OSTYPE" == cygwin* ]]; then
+    alias pbcopy='tee > /dev/clipboard'
+    alias pbpaste='cat /dev/clipboard'
+  elif [[ "$OSTYPE" == linux-android ]]; then
+    alias pbcopy='termux-clipboard-set'
+    alias pbpaste='termux-clipboard-get'
+  elif (( $+commands[wl-copy] && $+commands[wl-paste] )); then
+    alias pbcopy='wl-copy'
+    alias pbpaste='wl-paste'
+  elif [[ -n $DISPLAY ]]; then
     if (( $+commands[xclip] )); then
       alias pbcopy='xclip -selection clipboard -in'
       alias pbpaste='xclip -selection clipboard -out'
@@ -58,13 +65,9 @@ else
       alias pbcopy='xsel --clipboard --input'
       alias pbpaste='xsel --clipboard --output'
     fi
-  else
-    if (( $+commands[wl-copy] && $+commands[wl-paste] )); then
-      alias pbcopy='wl-copy'
-      alias pbpaste='wl-paste'
-    fi
   fi
 fi
 
-alias pbc='pbcopy'
-alias pbp='pbpaste'
+# alias o='xdg-open'
+# alias pbc='pbcopy'
+# alias pbp='pbpaste'
