@@ -5,6 +5,10 @@
 
 # dotfiles directory
 alias dot='cd ~/.dotfiles'
+alias nvzsh="nvim $XDG_CONFIG_HOME/zsh"
+alias nvtmux="nvim $XDG_CONFIG_HOME/tmux"
+alias nvnvim="nvim $XDG_CONFIG_HOME/nvim"
+alias nvnix="nvim $HOME/.dotfiles/nix-config"
 
 # gls
 # function -coreutils-alias-setup is from belak/zsh-utils:utility
