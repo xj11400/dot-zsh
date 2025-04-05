@@ -3,6 +3,12 @@
 # functions/utils.zsh
 #
 
+# Cross platform `sed -i` syntax.
+sedi() {
+  # GNU/BSD
+  sed --version &>/dev/null && sed -i -- "$@" || sed -i "" "$@"
+}
+
 # repalce
 # =======
 x_replace() {
