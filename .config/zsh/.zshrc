@@ -44,7 +44,7 @@ export X_ZSH_PLUGIN_MANAGER=${X_ZSH_PLUGIN_MANAGER:-antidote}
 x_zsh_load_plugin_manager "$X_ZSH_PLUGIN_MANAGER"
 
 # theme
-export X_ZSH_THEME=${X_ZSH_THEME:-powerlevel10k}
+export X_ZSH_THEME=${X_ZSH_THEME:-starship}
 x_zsh_load_theme "$X_ZSH_THEME"
 
 # .dircolors
