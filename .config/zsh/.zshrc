@@ -3,11 +3,11 @@
 # .zshrc - Zsh file loaded on interactive shell sessions.
 #
 
-# export ZDOTDIR=${ZDOTDIR:-$HOME/.config/zsh}
+export ZX_HOME=$HOME/.local/share/zsh/zx
 
 # clone zx
-[[ -d ${ZDOTDIR:-$HOME/.config/zsh}/zx ]] ||
-    git clone https://github.com/xj11400/zx-zsh.git ${ZDOTDIR:-$HOME/.config/zsh}/zx
+[[ -d $ZX_HOME ]] ||
+    git clone https://github.com/xj11400/zx-zsh.git $ZX_HOME
 
 # configs
 # _zx_plugins=(
@@ -42,7 +42,7 @@ zx_user=(
 zstyle ':zx:load' user-confd $zx_user
 
 # source zx
-source ${ZDOTDIR:-$HOME/.config/zsh}/zx/zx.zsh
+source $ZX_HOME/zx.zsh
 
 # path
 export PATH=$HOME/.local/share/utils:$PATH
