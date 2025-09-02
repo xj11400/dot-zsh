@@ -32,7 +32,7 @@ zstyle ':zx:load' prompt starship zx
 zstyle ':zx:load' plugin-manager antidote
 
 # programs
-zstyle ':zx:load' programs true
+# zstyle ':zx:load' programs true
 
 # user config dirs
 zx_user=(
