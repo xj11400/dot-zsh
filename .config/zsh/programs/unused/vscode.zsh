@@ -1,0 +1,3 @@
+export VCPKG_ROOT="$XDG_DATA_HOME/vcpkg"
+export VSCODE_PORTABLE="$XDG_CONFIG_HOME/vscode"
+export VSCODE_CLI_DATA_DIR="$XDG_CONFIG_HOME/vscode/cli"
